@@ -1,0 +1,26 @@
+<!-- templates/club_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Klubów</title>
+</head>
+<body>
+    <h1>Lista Klubów</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Kraj</th>
+            <th>Liga</th>
+            <th>Klub</th>
+        </tr>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.club_id }}</td>
+                <td>{{ club.country }}</td>
+                <td>{{ club.league }}</td>
+                <td><a href="{% url 'club_detail' club_id=club.club_id %}">{{ club.club }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

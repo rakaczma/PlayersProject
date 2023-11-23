@@ -1,0 +1,22 @@
+<!-- templates/player_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Graczy</title>
+</head>
+<body>
+    <h1>Lista Graczy</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Imię i nazwisko</th>
+        </tr>
+        {% for player in players %}
+            <tr>
+                <td>{{ player.player_id }}</td>
+                <td><a href="{% url 'player_detail' player_id=player.player_id %}">{{ player.player_name }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

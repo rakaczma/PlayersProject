@@ -1,0 +1,22 @@
+<!-- templates/stats_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szczegóły Statystyk</title>
+</head>
+<body>
+    <h1>Szczegóły Statystyk</h1>
+    <p>ID: {{ stats.stats_id }}</p>
+    <p>Mecze Rozegrane: {{ stats.matches_played }}</p>
+    <p>Zmiany: {{ stats.substitution }}</p>
+    <p>Minuty: {{ stats.mins }}</p>
+    <p>Strzelone Bramki: {{ stats.goals }}</p>
+    <p>xG: {{ stats.xG }}</p>
+    <p>xG na mecz: {{ stats.xG_per_avg_match }}</p>
+    <p>Strzały: {{ stats.shots }}</p>
+    <p>Strzały na cel: {{ stats.on_target }}</p>
+    <p>Strzały na mecz: {{ stats.shots_per_avg_match }}</p>
+    <p>Strzały na cel na mecz: {{ stats.on_target_per_avg_match }}</p>
+    <p>Rok: {{ stats.year }}</p>
+</body>
+</html>

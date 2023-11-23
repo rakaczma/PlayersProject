@@ -1,0 +1,42 @@
+<!-- templates/stats_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Statystyk</title>
+</head>
+<body>
+    <h1>Lista Statystyk</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Mecze Rozegrane</th>
+            <th>Zmiany</th>
+            <th>Minuty</th>
+            <th>Strzelone Bramki</th>
+            <th>xG</th>
+            <th>xG na mecz</th>
+            <th>Strzały</th>
+            <th>Strzały na cel</th>
+            <th>Strzały na mecz</th>
+            <th>Strzały na cel na mecz</th>
+            <th>Rok</th>
+        </tr>
+        {% for stats in stats %}
+            <tr>
+                <td>{{ stats.stats_id }}</td>
+                <td>{{ stats.matches_played }}</td>
+                <td>{{ stats.substitution }}</td>
+                <td>{{ stats.mins }}</td>
+                <td>{{ stats.goals }}</td>
+                <td>{{ stats.xG }}</td>
+                <td>{{ stats.xG_per_avg_match }}</td>
+                <td>{{ stats.shots }}</td>
+                <td>{{ stats.on_target }}</td>
+                <td>{{ stats.shots_per_avg_match }}</td>
+                <td>{{ stats.on_target_per_avg_match }}</td>
+                <td>{{ stats.year }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

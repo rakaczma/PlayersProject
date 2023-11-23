@@ -1,0 +1,25 @@
+<!-- templates/player_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szczegóły Gracza</title>
+</head>
+<body>
+    <h1>Szczegóły Gracza</h1>
+    <p>ID: {{ player.player_id }}</p>
+    <p>Imię i nazwisko: {{ player.player_name }}</p>
+
+    {% if stats %}
+        <h2>Statystyki</h2>
+        <p>Mecze rozegrane: {{ stats.matches_played }}</p>
+        <p>Substytucje: {{ stats.substitution }}</p>
+        <p>Czas gry (minuty): {{ stats.mins }}</p>
+        <p>Strzelone bramki: {{ stats.goals }}</p>
+        <!-- Dodaj pozostałe pola statystyk -->
+    {% else %}
+        <p>Brak statystyk dla tego gracza.</p>
+    {% endif %}
+
+    <!-- Dodaj resztę pól gracza -->
+</body>
+</html>
