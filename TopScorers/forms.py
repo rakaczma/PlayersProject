@@ -9,3 +9,13 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'password1', 'password2')
+
+
+
+from django import forms
+from .models import Player
+
+class PlayerForm(forms.ModelForm):
+    class Meta:
+        model = Player
+        fields = ['player_name']  # Dodaj pola formularza, które chcesz wypełnić

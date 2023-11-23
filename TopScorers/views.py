@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Player, Club, Stats
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
-from .forms import RegistrationForm
+from .forms import RegistrationForm, PlayerForm
 from django.contrib.auth.views import LoginView
 
 def player_list(request):
@@ -58,3 +58,14 @@ def register(request):
 
 def login(request):
     return LoginView.as_view(template_name='registration/login.html')(request)
+
+
+def add_player(request):
+    if request.method == 'POST':
+        form = PlayerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('player_list')  # Przekieruj usera po dodaniu gracza
+    else:
+        form = PlayerForm()
+    return render(request, 'add_player.html', {'form': form})
