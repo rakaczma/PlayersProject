@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Player, Club, Stats
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .forms import RegistrationForm, PlayerForm
 from django.contrib.auth.views import LoginView
 
@@ -60,6 +60,7 @@ def login(request):
     return LoginView.as_view(template_name='registration/login.html')(request)
 
 
+@login_required
 def add_player(request):
     if request.method == 'POST':
         form = PlayerForm(request.POST)
@@ -69,3 +70,9 @@ def add_player(request):
     else:
         form = PlayerForm()
     return render(request, 'add_player.html', {'form': form})
+
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('menu')  # Przekieruj użytkownika po wylogowaniu

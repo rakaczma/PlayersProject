@@ -6,7 +6,10 @@
 </head>
 <body>
     <h1>Lista Graczy</h1>
-    <td><a href="{% url 'add_player' %}">Dodaj gracza</a></td>
+    {% if user.is_authenticated %}
+        <td><a href="{% url 'add_player' %}">Dodaj gracza</a></td>
+        <td><a href="{% url 'logout' %}">Wyloguj się</a></td>
+    {% endif %}
     <table>
         <tr>
             <th>ID</th>
