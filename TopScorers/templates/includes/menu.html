@@ -1,7 +1,70 @@
+{#<nav>#}
+{#    <ul>#}
+{#        <li><a href="{% url 'player_list' %}">Lista graczy</a></li>#}
+{#        <li><a href="{% url 'login' %}">Zaloguj się</a></li>#}
+{#        <li><a href="{% url 'register' %}">Zarejestruj się</a></li>#}
+{#    </ul>#}
+{#</nav>#}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        {% block head %}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        {% endblock %}
+    </style>
+</head>
+<body>
+
 <nav>
     <ul>
         <li><a href="{% url 'player_list' %}">Lista graczy</a></li>
         <li><a href="{% url 'login' %}">Zaloguj się</a></li>
         <li><a href="{% url 'register' %}">Zarejestruj się</a></li>
+        <li><img src="{% static 'images/logos.jpg' %}" alt="Logo"></li>
     </ul>
 </nav>
+
+</body>
+</html>

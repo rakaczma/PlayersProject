@@ -5,24 +5,29 @@
     <title>Lista Graczy</title>
 </head>
 <body>
-    <h1>Lista Graczy</h1>
-    {% if user.is_authenticated %}
-        <td><a href="{% url 'add_player' %}">Dodaj gracza</a></td>
-        <td><a href="{% url 'logout' %}">Wyloguj się</a></td>
-    {% endif %}
-    <table>
+<h1>Lista Graczy</h1>
+{% if user.is_authenticated %}
+    <td><a href="{% url 'add_player' %}">Dodaj gracza</a></td>
+    <td><a href="{% url 'logout' %}">Wyloguj się</a></td>
+{% endif %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Imię i nazwisko</th>
+        <th>Klub</th>
+    </tr>
+    {% for player in players %}
         <tr>
-            <th>ID</th>
-            <th>Imię i nazwisko</th>
-            <th>Klub</th>
+            <td>{{ player.player_id }}</td>
+            <td>{% if player.club %}
+                <a href="{% url 'player_detail' player_id=player.player_id %}">{{ player.player_name }}</a>
+            {% else %}
+                Brak klubu
+            {% endif %}
+            </td>
+            <td><a href="{% url 'club_detail' club_id=player.club.club_id %}">{{ player.club.club_name }}</a></td>
         </tr>
-        {% for player in players %}
-            <tr>
-                <td>{{ player.player_id }}</td>
-                <td><a href="{% url 'player_detail' player_id=player.player_id %}">{{ player.player_name }}</a></td>
-                <td><a href="{% url 'club_detail' club_id=club.club_id %}">{{ club.club_name }}</a></td>
-            </tr>
-        {% endfor %}
-    </table>
+    {% endfor %}
+</table>
 </body>
 </html>
