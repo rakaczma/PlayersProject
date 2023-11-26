@@ -6,6 +6,11 @@ class Player(models.Model):
     club = models.OneToOneField('Club', on_delete=models.CASCADE, null=True, blank=True)
     stats = models.OneToOneField('Stats', on_delete=models.CASCADE, null=True, blank=True)
 
+    def get_club_detail_url(self):
+        return reverse('club_detail', args=[self.club.id])
+
+
+
 class Club(models.Model):
     club_id = models.AutoField(primary_key=True)
     country = models.CharField(max_length=255)

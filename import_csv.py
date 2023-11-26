@@ -72,6 +72,7 @@ with open('Data.csv', 'r', encoding='utf-8') as file:
             year=row['Year']
         )
 
-        # Przypisanie statystyk do gracza
+        # Przypisanie klubu i statystyk do gracza
+        player.club = club
         player.stats = stats
         player.save()
