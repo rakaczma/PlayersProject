@@ -23,7 +23,7 @@ def player_detail(request, player_id):
 
 def club_detail(request, club_id):
     club = get_object_or_404(Club, pk=club_id)
-    return render(request, 'club_detail.html', {'club': club})
+    return render(request, 'club_detail.html', {'club': club_name})
 
 def stats_detail(request, stats_id):
     stats = get_object_or_404(Stats, pk=stats_id)

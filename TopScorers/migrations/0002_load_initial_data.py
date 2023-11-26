@@ -1,28 +1,23 @@
-from django.db import migrations
 import csv
 
-def load_initial_data(apps, schema_editor):
-    Player = apps.get_model('TopScorers', 'Player')  # Model Player
-    Club = apps.get_model('TopScorers', 'Club')  # Model Club
-    Stats = apps.get_model('TopScorers', 'Stats')  # Model Stats
+from django.db import migrations
 
+from ..models import Player, Club, Stats
+
+
+def load_initial_data(apps, schema_editor):
     with open('Data.csv', 'r', encoding='utf-8') as file:
         data = csv.DictReader(file)
         for row in data:
-            # Wczytaj dane dla modelu Player
-            player = Player.objects.create(
-                player_name=row['Player Names']
-            )
-
             # Wczytaj dane dla modelu Club
-            club = Club.objects.create(
+            player_club = Club.objects.create(
                 country=row['Country'],
                 league=row['League'],
-                club=row['Club']
+                club_name=row['Club']
             )
 
             # Wczytaj dane dla modelu Stats
-            stats = Stats.objects.create(
+            player_stats = Stats.objects.create(
                 matches_played=row['Matches_Played'],
                 substitution=row['Substitution'],
                 mins=row['Mins'],
@@ -36,10 +31,17 @@ def load_initial_data(apps, schema_editor):
                 year=row['Year']
             )
 
-class Migration(migrations.Migration):
+            # Wczytaj dane dla modelu Player i połącz z klubem oraz statystykami
+            Player.objects.create(
+                player_name=row['Player Names'],
+                club=player_club,
+                stats=player_stats
+            )
 
+
+class Migration(migrations.Migration):
     dependencies = [
-        ('TopScorers', '0002_clear_tables'),
+        ('TopScorers', '0001_initial'),
     ]
 
     operations = [
