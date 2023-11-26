@@ -14,11 +14,13 @@
         <tr>
             <th>ID</th>
             <th>Imię i nazwisko</th>
+            <th>Klub</th>
         </tr>
         {% for player in players %}
             <tr>
                 <td>{{ player.player_id }}</td>
                 <td><a href="{% url 'player_detail' player_id=player.player_id %}">{{ player.player_name }}</a></td>
+                <td>{{ player.club.club_name }}</td>
             </tr>
         {% endfor %}
     </table>

@@ -6,7 +6,7 @@ from .forms import RegistrationForm, PlayerForm
 from django.contrib.auth.views import LoginView
 
 def player_list(request):
-    players = Player.objects.all()
+    players = Player.objects.select_related('club').all()
     return render(request, 'player_list.html', {'players': players})
 
 def club_list(request):
