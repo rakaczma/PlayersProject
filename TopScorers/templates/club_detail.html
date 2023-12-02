@@ -1,13 +1,53 @@
-<!-- templates/club_detail.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Szczegóły Klubu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .club-details {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
+<div class="club-details">
     <h1>Szczegóły Klubu</h1>
     <p>ID: {{ club.club_id }}</p>
     <p>Klub: {{ club.club_name }}</p>
     <p>Kraj: {{ club.country }}</p>
     <p>Liga: {{ club.league }}</p>
-</
+</div>
+
+<a href="{% url 'player_list' %}" class="back-button">Powrót do Listy Graczy</a>
+
+</body>
+</html>

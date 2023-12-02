@@ -28,17 +28,12 @@ def player_detail(request, player_id):
 
 def club_detail(request, club_id):
     club = get_object_or_404(Club, pk=club_id)
-    return render(request, 'club_detail.html', {'club': club_id})
+    return render(request, 'club_detail.html', {'club': club})
 
 
 def stats_detail(request, stats_id):
     stats = get_object_or_404(Stats, pk=stats_id)
     return render(request, 'stats_detail.html', {'stats': stats})
-
-
-# def add_player(request):
-#     # Tworzenie piłkarza...
-#     return render(request, 'add_player.html')
 
 
 def add_stats(request):
@@ -66,35 +61,66 @@ def login(request):
     return LoginView.as_view(template_name='registration/login.html')(request)
 
 
+# @login_required
+# def add_player(request):
+#     if request.method == 'POST':
+#         player_name = request.POST.get('player_name')
+#         club_name = request.POST.get('club_name')
+#         club_country = request.POST.get('club_country')
+#         club_league = request.POST.get('club_league')
+#
+#         # Tworzenie klubu (jeśli nie istnieje)
+#         club, created = Club.objects.get_or_create(
+#             club_name=club_name,
+#             defaults={
+#                 'country': club_country,
+#                 'league': club_league
+#             }
+#         )
+#
+#         # Tworzenie gracza i przypisanie klubu
+#         player = Player.objects.create(
+#             player_name=player_name,
+#             club=club
+#         )
+#
+#         # Przekierowanie na stronę z listą graczy
+#         return redirect('player_list')
+#
+#     return render(request, 'add_player.html')
+
 @login_required
 def add_player(request):
     if request.method == 'POST':
         player_name = request.POST.get('player_name')
         club_name = request.POST.get('club_name')
-        club_country = request.POST.get('club_country')  # Dodane pole 'Kraj'
-        club_league = request.POST.get('club_league')    # Dodane pole 'Liga'
+        club_country = request.POST.get('club_country')
+        club_league = request.POST.get('club_league')
 
-        # Tworzenie klubu (jeśli nie istnieje)
-        club, created = Club.objects.get_or_create(
-            club_name=club_name,
-            defaults={
-                'country': club_country,
-                'league': club_league
-            }
-        )
+        # Sprawdzenie czy klub już istnieje
+        clubs = Club.objects.filter(club_name=club_name)
+
+        if clubs.exists():
+            # Jeśli klub istnieje, użyj pierwszego pasującego klubu
+            club = clubs.first()
+        else:
+            # Jeśli klub nie istnieje, stwórz nowy klub
+            club = Club.objects.create(
+                club_name=club_name,
+                country=club_country,
+                league=club_league
+            )
 
         # Tworzenie gracza i przypisanie klubu
         player = Player.objects.create(
             player_name=player_name,
             club=club
-            # Dodaj tutaj inne pola gracza, jeśli istnieją
         )
 
         # Przekierowanie na stronę z listą graczy
         return redirect('player_list')
 
     return render(request, 'add_player.html')
-
 
 
 def logout_user(request):

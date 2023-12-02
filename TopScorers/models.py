@@ -4,7 +4,7 @@ class Player(models.Model):
     player_id = models.AutoField(primary_key=True)
     player_name = models.CharField(max_length=255)
     # club = models.OneToOneField('Club', on_delete=models.CASCADE, null=True, blank=True)
-    club = models.ForeignKey('Club', on_delete=models.CASCADE)
+    club = models.ForeignKey('Club', on_delete=models.CASCADE, null=True, blank=True, default=None)
     stats = models.OneToOneField('Stats', on_delete=models.CASCADE, null=True, blank=True)
 
     def get_club_detail_url(self):
