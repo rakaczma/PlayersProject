@@ -61,33 +61,6 @@ def login(request):
     return LoginView.as_view(template_name='registration/login.html')(request)
 
 
-# @login_required
-# def add_player(request):
-#     if request.method == 'POST':
-#         player_name = request.POST.get('player_name')
-#         club_name = request.POST.get('club_name')
-#         club_country = request.POST.get('club_country')
-#         club_league = request.POST.get('club_league')
-#
-#         # Tworzenie klubu (jeśli nie istnieje)
-#         club, created = Club.objects.get_or_create(
-#             club_name=club_name,
-#             defaults={
-#                 'country': club_country,
-#                 'league': club_league
-#             }
-#         )
-#
-#         # Tworzenie gracza i przypisanie klubu
-#         player = Player.objects.create(
-#             player_name=player_name,
-#             club=club
-#         )
-#
-#         # Przekierowanie na stronę z listą graczy
-#         return redirect('player_list')
-#
-#     return render(request, 'add_player.html')
 
 @login_required
 def add_player(request):
@@ -126,3 +99,38 @@ def add_player(request):
 def logout_user(request):
     logout(request)
     return redirect('menu')  # Przekieruj użytkownika po wylogowaniu
+
+
+
+@login_required
+def add_stats(request):
+    if request.method == 'POST':
+        matches_played = request.POST.get('matches_played')
+        substitution = request.POST.get('substitution')
+        mins = request.POST.get('mins')
+        goals = request.POST.get('goals')
+        xG = request.POST.get('xG')
+        xG_per_avg_match = request.POST.get('xG_per_avg_match')
+        shots = request.POST.get('shots')
+        on_target = request.POST.get('on_target')
+        shots_per_avg_match = request.POST.get('shots_per_avg_match')
+        on_target_per_avg_match = request.POST.get('on_target_per_avg_match')
+        year = request.POST.get('year')
+
+        stats = Stats.objects.create(
+            matches_played=matches_played,
+            substitution=substitution,
+            mins=mins,
+            goals=goals,
+            xG=xG,
+            xG_per_avg_match=xG_per_avg_match,
+            shots=shots,
+            on_target=on_target,
+            shots_per_avg_match=shots_per_avg_match,
+            on_target_per_avg_match=on_target_per_avg_match,
+            year=year,
+        )
+
+        return redirect('player_list')
+
+    return render(request, 'add_stats.html')

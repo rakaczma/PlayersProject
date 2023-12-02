@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj Statystyki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Dodaj Statystyki</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="matches_played">Mecze rozegrane:</label>
+    <input type="number" name="matches_played" id="matches_played" required>
+
+    <label for="substitution">Substytucje:</label>
+    <input type="number" name="substitution" id="substitution" required>
+
+    <label for="mins">Czas gry (minuty):</label>
+    <input type="number" name="mins" id="mins" required>
+
+    <label for="goals">Strzelone bramki:</label>
+    <input type="number" name="goals" id="goals" required>
+
+    <label for="xG">Prawdopodobieństwo /xG/:</label>
+    <input type="number" name="xG" id="xG" required>
+
+    <label for="xG_per_avg_match">Prawdopodobieństwo xG na mecz:</label>
+    <input type="number" name="xG_per_avg_match" id="xG_per_avg_match" required>
+
+    <label for="shots">Strzały:</label>
+    <input type="number" name="shots" id="shots" required>
+
+    <label for="on_target">Strzały celne:</label>
+    <input type="number" name="on_target" id="on_target" required>
+
+    <label for="shots_per_avg_match">Strzały na mecz:</label>
+    <input type="number" name="shots_per_avg_match" id="shots_per_avg_match" required>
+
+    <label for="on_target_per_avg_match">Strzały celne na mecz:</label>
+    <input type="number" name="on_target_per_avg_match" id="on_target_per_avg_match" required>
+
+    <label for="year">Rok:</label>
+    <input type="number" name="year" id="year" required>
+
+
+    <button type="submit">Dodaj statystyki</button>
+</form>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'player_list' %}">Powrót do Listy Graczy</a>
+</div>
+
+</body>
+</html>

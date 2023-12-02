@@ -1,3 +1,75 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Szczegóły Gracza</title>#}
+{#    <style>#}
+{#        body {#}
+{#            font-family: Arial, sans-serif;#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            background-color: #f4f4f4;#}
+{#        }#}
+{##}
+{#        h1, h2 {#}
+{#            text-align: center;#}
+{#        }#}
+{##}
+{#        p {#}
+{#            margin: 10px 0;#}
+{#        }#}
+{##}
+{#        .player-details {#}
+{#            width: 80%;#}
+{#            margin: 20px auto;#}
+{#            background-color: #fff;#}
+{#            padding: 20px;#}
+{#            border-radius: 8px;#}
+{#            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);#}
+{#        }#}
+{##}
+{#        .stats-section {#}
+{#            margin-top: 20px;#}
+{#        }#}
+{##}
+{#        .no-stats {#}
+{#            color: #888;#}
+{#        }#}
+{##}
+{#        .back-button {#}
+{#            display: block;#}
+{#            text-align: center;#}
+{#            margin-top: 20px;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="player-details">#}
+{#    <h1>Szczegóły Gracza</h1>#}
+{#    <p>ID: {{ player.player_id }}</p>#}
+{#    <p>Imię i nazwisko: {{ player.player_name }}</p>#}
+{##}
+{#    {% if stats %}#}
+{#        <div class="stats-section">#}
+{#            <h2>Statystyki</h2>#}
+{#            <p>Mecze rozegrane: {{ stats.matches_played }}</p>#}
+{#            <p>Substytucje: {{ stats.substitution }}</p>#}
+{#            <p>Czas gry (minuty): {{ stats.mins }}</p>#}
+{#            <p>Strzelone bramki: {{ stats.goals }}</p>#}
+{#        </div>#}
+{#    {% else %}#}
+{#        <p class="no-stats">Brak statystyk dla tego gracza.</p>#}
+{#    {% endif %}#}
+{#</div>#}
+{##}
+{#<a href="{% url 'player_list' %}" class="back-button">Powrót do Listy Graczy</a>#}
+{##}
+{#</body>#}
+{#</html>#}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +110,8 @@
             color: #888;
         }
 
-        .back-button {
+        .back-button,
+        .add-stats-button {
             display: block;
             text-align: center;
             margin-top: 20px;
@@ -59,11 +132,21 @@
             <p>Substytucje: {{ stats.substitution }}</p>
             <p>Czas gry (minuty): {{ stats.mins }}</p>
             <p>Strzelone bramki: {{ stats.goals }}</p>
+            <p>Prawdopodobieństwo /xg/: {{ stats.xG }}</p>
+            <p>Prawdopodobieństwo /xg/ na mecz: {{ stats.xG_per_avg_match }}</p>
+            <p>Strzały: {{ stats.shots }}</p>
+            <p>Strzały celne: {{ stats.on_target }}</p>
+            <p>Strzały na mecz: {{ stats.shots_per_avg_match }}</p>
+            <p>Strzały celne na mecz: {{ stats.on_target_per_avg_match }}</p>
+            <p>Rok: {{ stats.year }}</p>
         </div>
     {% else %}
         <p class="no-stats">Brak statystyk dla tego gracza.</p>
+        <a href="{% url 'add_stats' %}" class="add-stats-button">Dodaj statystyki gracza</a>
     {% endif %}
 </div>
+
+
 
 <a href="{% url 'player_list' %}" class="back-button">Powrót do Listy Graczy</a>
 
