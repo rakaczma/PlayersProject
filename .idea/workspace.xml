@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0d99093-eadf-4c3f-a64d-87c48fbbbb43" name="Changes" comment="upd0212">
-      <change afterPath="$PROJECT_DIR$/TopScorers/templates/add_stats.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/templates/add_player.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/add_player.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/templates/includes/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/includes/menu.html" afterDir="false" />
+    <list default="true" id="a0d99093-eadf-4c3f-a64d-87c48fbbbb43" name="Changes" comment="upd0312">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2d278cc5-68d5-4779-9e75-067e89686704.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2d278cc5-68d5-4779-9e75-067e89686704/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a754bc06-0a7a-476e-ae67-c2b91b160a0f.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a754bc06-0a7a-476e-ae67-c2b91b160a0f/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopScorers/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopScorers/templates/player_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/player_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/registration/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopScorers/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopScorers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -56,27 +59,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rafal\PycharmProjects\PlayersProject\static" />
@@ -131,7 +134,8 @@
       <workItem from="1701001468073" duration="284000" />
       <workItem from="1701010611000" duration="13289000" />
       <workItem from="1701543295878" duration="11441000" />
-      <workItem from="1701555853774" duration="4468000" />
+      <workItem from="1701555853774" duration="4988000" />
+      <workItem from="1701619811569" duration="7665000" />
     </task>
     <task id="LOCAL-00001" summary="upd1">
       <option name="closed" value="true" />
@@ -189,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701555134205</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="upd0312">
+      <option name="closed" value="true" />
+      <created>1701560620169</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701560620169</updated>
+    </task>
+    <task id="LOCAL-00009" summary="upd0312">
+      <option name="closed" value="true" />
+      <created>1701560657750</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701560657750</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +222,8 @@
     <MESSAGE value="upd3" />
     <MESSAGE value="upd4" />
     <MESSAGE value="upd0212" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd0212" />
+    <MESSAGE value="upd0312" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd0312" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,6 +232,20 @@
           <url>file://$PROJECT_DIR$/TopScorers/models.py</url>
           <line>5</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PlayersProject/settings.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PlayersProject/asgi.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TopScorers/urls.py</url>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

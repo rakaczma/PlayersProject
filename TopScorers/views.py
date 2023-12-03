@@ -23,7 +23,8 @@ def stats_list(request):
 
 def player_detail(request, player_id):
     player = get_object_or_404(Player, pk=player_id)
-    return render(request, 'player_detail.html', {'player': player, 'stats': player.stats})
+    stats = player.stats
+    return render(request, 'player_detail.html', {'player': player, 'stats': stats})
 
 
 def club_detail(request, club_id):
@@ -34,11 +35,6 @@ def club_detail(request, club_id):
 def stats_detail(request, stats_id):
     stats = get_object_or_404(Stats, pk=stats_id)
     return render(request, 'stats_detail.html', {'stats': stats})
-
-
-def add_stats(request):
-    # Dodawanie statystyk...
-    return render(request, 'add_stats.html')
 
 
 def menu(request):
@@ -101,9 +97,43 @@ def logout_user(request):
     return redirect('menu')  # Przekieruj użytkownika po wylogowaniu
 
 
+#
+# @login_required
+# def add_stats(request):
+#     if request.method == 'POST':
+#         matches_played = request.POST.get('matches_played')
+#         substitution = request.POST.get('substitution')
+#         mins = request.POST.get('mins')
+#         goals = request.POST.get('goals')
+#         xG = request.POST.get('xG')
+#         xG_per_avg_match = request.POST.get('xG_per_avg_match')
+#         shots = request.POST.get('shots')
+#         on_target = request.POST.get('on_target')
+#         shots_per_avg_match = request.POST.get('shots_per_avg_match')
+#         on_target_per_avg_match = request.POST.get('on_target_per_avg_match')
+#         year = request.POST.get('year')
+#
+#         stats = Stats.objects.create(
+#             matches_played=matches_played,
+#             substitution=substitution,
+#             mins=mins,
+#             goals=goals,
+#             xG=xG,
+#             xG_per_avg_match=xG_per_avg_match,
+#             shots=shots,
+#             on_target=on_target,
+#             shots_per_avg_match=shots_per_avg_match,
+#             on_target_per_avg_match=on_target_per_avg_match,
+#             year=year,
+#         )
+#
+#
+#         return redirect('player_list')
+#
+#     return render(request, 'add_stats.html')
 
 @login_required
-def add_stats(request):
+def add_stats(request, player_id):
     if request.method == 'POST':
         matches_played = request.POST.get('matches_played')
         substitution = request.POST.get('substitution')
@@ -117,6 +147,10 @@ def add_stats(request):
         on_target_per_avg_match = request.POST.get('on_target_per_avg_match')
         year = request.POST.get('year')
 
+        # Pobierz gracza
+        player = get_object_or_404(Player, pk=player_id)
+
+        # Przypisz statystyki do gracza
         stats = Stats.objects.create(
             matches_played=matches_played,
             substitution=substitution,
@@ -131,6 +165,9 @@ def add_stats(request):
             year=year,
         )
 
+        player.stats = stats
+        player.save()
+
         return redirect('player_list')
 
-    return render(request, 'add_stats.html')
+    return render(request, 'add_stats.html', {'player_id': player_id})
