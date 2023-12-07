@@ -4,11 +4,26 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
 from .forms import RegistrationForm, PlayerForm
 from django.contrib.auth.views import LoginView
+from django.db.models import Q
+
+
+# def player_list(request):
+#     players = Player.objects.select_related('club').all()
+#     return render(request, 'player_list.html', {'players': players})
 
 
 def player_list(request):
-    players = Player.objects.select_related('club').all()
+    search_query = request.GET.get('search', '')
+
+    if search_query:
+        players = Player.objects.select_related('club').filter(
+            Q(player_name__icontains=search_query) | Q(club__club_name__icontains=search_query)
+        )
+    else:
+        players = Player.objects.select_related('club').all()
+
     return render(request, 'player_list.html', {'players': players})
+
 
 
 def club_list(request):
@@ -53,8 +68,8 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
-def login(request):
-    return LoginView.as_view(template_name='registration/login.html')(request)
+def login(request, user):
+    return LoginView.as_view(template_name='registration/login.html')(request, user)
 
 
 

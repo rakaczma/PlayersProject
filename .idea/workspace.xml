@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0d99093-eadf-4c3f-a64d-87c48fbbbb43" name="Changes" comment="upd0312">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2d278cc5-68d5-4779-9e75-067e89686704.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2d278cc5-68d5-4779-9e75-067e89686704/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a754bc06-0a7a-476e-ae67-c2b91b160a0f.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a754bc06-0a7a-476e-ae67-c2b91b160a0f/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+    <list default="true" id="a0d99093-eadf-4c3f-a64d-87c48fbbbb43" name="Changes" comment="upd0412">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/templates/player_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/player_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TopScorers/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopScorers/templates/player_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/player_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopScorers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -50,6 +45,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -72,6 +70,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -135,7 +134,10 @@
       <workItem from="1701010611000" duration="13289000" />
       <workItem from="1701543295878" duration="11441000" />
       <workItem from="1701555853774" duration="4988000" />
-      <workItem from="1701619811569" duration="7665000" />
+      <workItem from="1701619811569" duration="8261000" />
+      <workItem from="1701711977994" duration="535000" />
+      <workItem from="1701975053642" duration="9573000" />
+      <workItem from="1701989018632" duration="2612000" />
     </task>
     <task id="LOCAL-00001" summary="upd1">
       <option name="closed" value="true" />
@@ -209,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701560657750</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="upd0412">
+      <option name="closed" value="true" />
+      <created>1701643716037</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701643716037</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +233,8 @@
     <MESSAGE value="upd4" />
     <MESSAGE value="upd0212" />
     <MESSAGE value="upd0312" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd0312" />
+    <MESSAGE value="upd0412" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd0412" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -246,6 +257,11 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/TopScorers/urls.py</url>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TopScorers/views.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
