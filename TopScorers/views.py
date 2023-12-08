@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Player, Club, Stats
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, logout
+from django.contrib.auth import authenticate, login, logout
 from .forms import RegistrationForm, PlayerForm
 from django.contrib.auth.views import LoginView
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
 
 
 # def player_list(request):
@@ -12,8 +15,21 @@ from django.db.models import Q
 #     return render(request, 'player_list.html', {'players': players})
 
 
+# def player_list(request):
+#     search_query = request.GET.get('search', '')
+#
+#     if search_query:
+#         players = Player.objects.select_related('club').filter(
+#             Q(player_name__icontains=search_query) | Q(club__club_name__icontains=search_query)
+#         )
+#     else:
+#         players = Player.objects.select_related('club').all()
+#
+#     return render(request, 'player_list.html', {'players': players})
+
 def player_list(request):
     search_query = request.GET.get('search', '')
+    players_per_page = 50
 
     if search_query:
         players = Player.objects.select_related('club').filter(
@@ -22,8 +38,17 @@ def player_list(request):
     else:
         players = Player.objects.select_related('club').all()
 
-    return render(request, 'player_list.html', {'players': players})
+    paginator = Paginator(players, players_per_page)
 
+    page = request.GET.get('page')
+    try:
+        players = paginator.page(page)
+    except PageNotAnInteger:
+        players = paginator.page(1)
+    except EmptyPage:
+        players = paginator.page(paginator.num_pages)
+
+    return render(request, 'player_list.html', {'players': players})
 
 
 def club_list(request):
@@ -68,8 +93,32 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
-def login(request, user):
-    return LoginView.as_view(template_name='registration/login.html')(request, user)
+# def login(request, user):
+#     return LoginView.as_view(template_name='registration/login.html')(request, user)
+
+
+# def login_view(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('player_list')
+#         else:
+#             messages.error(request, 'Nieprawidłowy login lub hasło.')
+#
+#     return render(request, 'registration/login.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            return redirect('player_list')
+    else:
+        form = AuthenticationForm(request)
+
+    return render(request, 'registration/login.html', {'form': form})
 
 
 

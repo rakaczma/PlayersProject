@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0d99093-eadf-4c3f-a64d-87c48fbbbb43" name="Changes" comment="upd0412">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
+    <list default="true" id="a0d99093-eadf-4c3f-a64d-87c48fbbbb43" name="Changes" comment="upd0712">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dabd4732-57ee-4788-894e-39b37e3bb797/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopScorers/templates/player_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/player_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopScorers/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopScorers/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TopScorers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TopScorers/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -138,6 +140,7 @@
       <workItem from="1701711977994" duration="535000" />
       <workItem from="1701975053642" duration="9573000" />
       <workItem from="1701989018632" duration="2612000" />
+      <workItem from="1702047148513" duration="2583000" />
     </task>
     <task id="LOCAL-00001" summary="upd1">
       <option name="closed" value="true" />
@@ -219,11 +222,30 @@
       <option name="project" value="LOCAL" />
       <updated>1701643716037</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="upd0712">
+      <option name="closed" value="true" />
+      <created>1701992368161</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701992368161</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="upd1" />
@@ -234,7 +256,8 @@
     <MESSAGE value="upd0212" />
     <MESSAGE value="upd0312" />
     <MESSAGE value="upd0412" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd0412" />
+    <MESSAGE value="upd0712" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd0712" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -260,7 +283,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/TopScorers/views.py</url>
-          <line>94</line>
+          <line>143</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
